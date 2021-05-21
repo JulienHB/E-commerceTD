@@ -7,9 +7,10 @@
     <title>Contact</title>
 </head>
 <body>
+    
     <h1>Contactez-nous </h1>
     <p>Pour plus d'informations sur un produit ou notre société veuillez saisir le formulaire suivant </p>
-    <form action="traitement.php" method="get">
+    <form action="traitement.php" method="post">
         <p>
             <label for="firstname">Prénom</label>
             <input type="text" name="firstname"/>
@@ -31,5 +32,13 @@
             <input type="submit" name="send" value="Envoyer"/>
         </p>
     </form>
+    
+    <?php 
+    session_start();
+    if(!empty($_SESSION['reponse'])){
+        echo $_SESSION['reponse'];
+        session_destroy();
+        session_abort();
+    }?>
 </body>
 </html>
